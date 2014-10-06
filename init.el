@@ -16,3 +16,11 @@
 (require 'init-themes)
 (require 'init-osx)
 (require 'init-learning)
+(require 'init-ido)
+(require 'init-editor)
+(require 'init-fonts)
+(require 'init-filesystem)
+(require 'init-whitespace)
+
+;; Global modes
+(require 'init-global-modes)
