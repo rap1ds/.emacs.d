@@ -14,3 +14,5 @@
 ;;----------------------------------------------------------------------------
 (require 'init-elpa) ;; Machinery for installing required packages
 (require 'init-themes)
+(require 'init-osx)
+(require 'init-learning)
