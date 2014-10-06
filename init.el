@@ -1,22 +1,16 @@
-;; init.el
+;;;
+;;; My emacs configurations
+;;;
+;;; Copied from: https://github.com/purcell/emacs.d/blob/master/init.el
+;;;
 
-;; Package managers
 
-(require 'package)
-(setq package-archives
-      '(("marmalade" . "http://marmalade-repo.org/packages/")
-        ;; ("tromey" . "http://tromey.com/elpa/")
-    ("melpa" . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
+;;; This file bootstraps the configuration, which is divided into
+;;; a number of other files.
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; My installed packages
-
-(defvar my-packages '(color-theme-solarized))
-
-(dolist (p my-packages)
-  (unless (package-installed-p p)
-    (package-install p)))
-
-;; Theme
-
-(load-theme 'solarized-dark t)
+;;----------------------------------------------------------------------------
+;; Bootstrap config
+;;----------------------------------------------------------------------------
+(require 'init-elpa) ;; Machinery for installing required packages
+(require 'init-themes)
