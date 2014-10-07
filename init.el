@@ -21,6 +21,8 @@
 (require 'init-fonts)
 (require 'init-filesystem)
 (require 'init-whitespace)
+(require 'init-exec-path)
+(require 'init-projectile)
 
 ;; Global modes
 (require 'init-global-modes)
