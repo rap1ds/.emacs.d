@@ -23,6 +23,8 @@
 (require 'init-whitespace)
 (require 'init-exec-path)
 (require 'init-projectile)
+(require 'init-ruby)
+(require 'init-multiple-cursors)
 
 ;; Global modes
 (require 'init-global-modes)
