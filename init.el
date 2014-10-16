@@ -25,6 +25,7 @@
 (require 'init-projectile)
 (require 'init-ruby)
 (require 'init-multiple-cursors)
+(require 'init-acejump)
 
 ;; Global modes
 (require 'init-global-modes)

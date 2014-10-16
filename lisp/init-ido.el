@@ -19,4 +19,10 @@
 (global-set-key (kbd "C-c M-x") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+(require-package 'idomenu)
+(autoload 'idomenu "idomenu" nil t)
+
+;; Jump to a definition in the current file. (This is awesome)
+(global-set-key (kbd "C-x C-i") 'idomenu)
+
 (provide 'init-ido)
