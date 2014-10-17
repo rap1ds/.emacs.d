@@ -26,6 +26,8 @@
 (require 'init-ruby)
 (require 'init-multiple-cursors)
 (require 'init-acejump)
+(require 'init-yaml)
+(require 'init-windmove)
 
 ;; Global modes
 (require 'init-global-modes)
