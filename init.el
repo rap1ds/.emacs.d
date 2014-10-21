@@ -28,6 +28,7 @@
 (require 'init-acejump)
 (require 'init-yaml)
 (require 'init-windmove)
+(require 'init-markdown)
 
 ;; Global modes
 (require 'init-global-modes)
