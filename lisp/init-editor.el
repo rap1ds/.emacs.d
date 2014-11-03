@@ -3,7 +3,8 @@
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
 
-(global-hl-line-mode 1)
+; This performs very badly, disable it
+; (global-hl-line-mode 1)
 (set-default 'cursor-type 'bar)
 
 ;; Unique buffer names
