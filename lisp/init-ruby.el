@@ -12,4 +12,8 @@
 
 (setq ruby-deep-indent-paren nil)
 
+;; https://github.com/purcell/emacs.d/blob/master/lisp/init-ruby-mode.el
+(with-eval-after-load 'ruby-mode
+  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent))
+
 (provide 'init-ruby)
