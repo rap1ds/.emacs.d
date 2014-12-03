@@ -36,6 +36,7 @@
 
 (require 'init-windmove)
 (require 'init-markdown)
+(require 'init-org)
 
 ;; Global modes
 (require 'init-global-modes)
