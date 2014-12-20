@@ -19,11 +19,12 @@
 (require 'init-ido)
 
 (require 'init-editor)
-(require 'init-evil)
 (require 'init-fonts)
 (require 'init-filesystem)
 (require 'init-whitespace)
 (require 'init-exec-path)
+
+(require 'init-powerline)
 
 (require 'init-projectile)
 (require 'init-ruby)
@@ -36,7 +37,10 @@
 
 (require 'init-windmove)
 (require 'init-markdown)
+
 (require 'init-org)
+
+(require 'init-evil)
 
 ;; Global modes
 (require 'init-global-modes)
