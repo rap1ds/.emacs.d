@@ -20,6 +20,7 @@
 
 (require 'init-editor)
 (require 'init-fonts)
+(require 'init-smartparens)
 (require 'init-filesystem)
 (require 'init-whitespace)
 (require 'init-exec-path)
