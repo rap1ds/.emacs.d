@@ -25,6 +25,7 @@
 (require 'init-whitespace)
 (require 'init-exec-path)
 
+(require 'init-evil)
 (require 'init-powerline)
 
 (require 'init-projectile)
@@ -35,13 +36,34 @@
 (require 'init-sass)
 (require 'init-javascript)
 (require 'init-indent)
+(require 'init-autocomplete)
+(require 'init-clojure)
 
 (require 'init-windmove)
 (require 'init-markdown)
 
 (require 'init-org)
 
-(require 'init-evil)
-
 ;; Global modes
 (require 'init-global-modes)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/tasks.org" "~/Dropbox/org/daily-tasks.org" "~/Dropbox/org/notes.org" "~/Dropbox/org/training.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-level-1 ((t (:inherit nil :height 1))))
+ '(org-level-2 ((t (:inherit nil :height 1))))
+ '(org-level-3 ((t (:inherit nil :height 1))))
+ '(org-level-4 ((t (:inherit nil :height 1))))
+ '(org-level-5 ((t (:inherit nil :height 1))))
+ '(org-level-6 ((t (:inherit nil :height 1))))
+ '(org-level-7 ((t (:inherit nil :height 1))))
+ '(whitespace-space ((t (:foreground "#073642")))))
