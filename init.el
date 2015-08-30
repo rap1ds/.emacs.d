@@ -53,7 +53,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/tasks.org" "~/Dropbox/org/daily-tasks.org" "~/Dropbox/org/notes.org" "~/Dropbox/org/training.org"))))
+    ("~/Dropbox/org/clock-test.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

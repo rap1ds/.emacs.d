@@ -19,6 +19,7 @@
 (define-key global-map "\C-cc" 'org-capture)
 
 (setq org-agenda-span 'day)
+(setq org-clock-idle-time 20)
 
 ;; Evil bindings:
 ;;
@@ -35,6 +36,10 @@
          "* Start %(org-time-stamp nil)")
         ("e" "Day (e)nded at" entry (file+headline (concat org-directory "/worktime-tracking.org") "Worktime tracking")
          "* End %(org-time-stamp nil), idle %? min")
+        ("c" "Clock in" entry (file+headline (concat org-directory "/clock-test.org") "Working...")
+         "* %(org-insert-time-stamp (current-time))" :prepend t :clock-in t :clock-keep t)
+        ("n" "(n)ote" entry (file+headline (concat org-directory "/notes.org") "Notes")
+         "* %?\n")
         ))
 
 ;; Start org-agenda in Normal evil node
@@ -46,6 +51,8 @@
       "r" 'org-agenda-redo
       "$" 'org-agenda-archive
       "q" 'org-agenda-quit
+      "O" 'org-agenda-clock-out
+      "R" 'org-agenda-clockreport-mode
       )))
 
 ;; Global evil leader keys
