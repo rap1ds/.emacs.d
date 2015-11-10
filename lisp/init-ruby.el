@@ -2,7 +2,6 @@
 (require-package 'inf-ruby)
 (require-package 'rvm)
 (require-package 'haml-mode)
-(require-package 'company)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'ruby-mode-hook 'my-evil/extend-word-definition)
@@ -13,7 +12,6 @@
 
 (add-hook 'robe-mode-hook 'ac-robe-setup)
 
-(global-company-mode t)
 (push 'company-robe company-backends)
 
 ;; Rebind M-. back to 'robe-jump instead of evil mode repeat

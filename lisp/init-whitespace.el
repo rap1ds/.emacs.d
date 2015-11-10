@@ -1,5 +1,5 @@
 ;; This perform very bad
-(global-whitespace-mode t)
+(global-whitespace-mode -1)
 
 ;; Show only whitespaces listed on the list and disable e.g. newline
 (setq whitespace-style (quote

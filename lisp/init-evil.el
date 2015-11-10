@@ -12,6 +12,8 @@
   "b" 'ido-switch-buffer
   "s" 'projectile-ag)
 
+(define-key evil-normal-state-map (kbd "§") 'evil-execute-in-emacs-state)
+
 ;; Make evil behave like Vim by including _ and - to definition of a word
 ;; See FAQ at the bottom of: https://bitbucket.org/lyro/evil/wiki/Home
 (defun my-evil/extend-word-definition ()

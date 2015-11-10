@@ -4,15 +4,23 @@
 
 (require-package 'clojure-mode)
 (require-package 'cider)
+(require-package 'cider-eval-sexp-fu)
 (require-package 'align-cljlet)
+
+;; Enable eval'd expression highlighting
+;; FIXME cider-eval-sexp-fu doesn't work, after several hours of debugging.
+;; The error I get is that Symbol is void
+;; (require 'cider-eval-sexp-fu)
 
 ;; Not spending time to learn to use this right now but maybe one day...
 ;; (require-package 'clj-refactor)
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'show-smartparens-mode)
+(add-hook 'clojure-mode-hook #'evil-smartparens-mode)
 
 ;; Define versions of typical cider-eval-last-x functions to work with
 ;; evil's normal mode where point is one char left from where it would
@@ -46,6 +54,13 @@
 (defun my-clojure/eval-last-sexp-and-replace ()
   (interactive)
   (my-clojure/do-with-append 'cider-eval-last-sexp-and-replace))
+
+;; Adapted from https://github.com/syl20bnr/spacemacs/commit/4a0abb18cc37e5311db6338872bd9a49fa96dc36
+(defun my-clojure/cider-debug-setup ()
+  (evil-make-overriding-map cider--debug-mode-map 'normal)
+  (evil-normalize-keymaps))
+
+(add-hook 'cider--debug-mode-hook 'my-clojure/cider-debug-setup)
 
 (add-hook 'cider-mode-hook
           (lambda ()
