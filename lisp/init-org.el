@@ -180,6 +180,11 @@ FUN function callback"
 (provide 'evil-org)
 ;;; evil-org.el ends here
 
+(require-package 'ox-reveal)
+(require-package 'htmlize)
+
+(setq org-reveal-root "file:///Users/mikko/.emacs.d/reveal.js-3.2.0")
+
 (custom-set-faces
  '(org-level-1 ((t (:inherit nil :height 1))))
  '(org-level-2 ((t (:inherit nil :height 1))))
@@ -198,7 +203,6 @@ FUN function callback"
 (define-key global-map "\C-cc" 'org-capture)
 
 (setq org-agenda-span 'day)
-(setq org-clock-idle-time 20)
 
 (setq org-todo-keywords
       '((sequence "TODO" "WIP" "|" "DONE")))
@@ -241,6 +245,7 @@ FUN function callback"
       "q" 'org-agenda-quit
       "O" 'org-agenda-clock-out
       "R" 'org-agenda-clockreport-mode
+      "gm" 'org-agenda-month-view
       "gw" 'org-agenda-week-view
       "gd" 'org-agenda-day-view
       )))

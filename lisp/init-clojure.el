@@ -18,7 +18,7 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook 'show-smartparens-mode)
 (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
 
