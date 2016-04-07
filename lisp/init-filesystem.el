@@ -21,4 +21,18 @@
         (rename-buffer new-name)
         (set-visited-file-name new-name)))))
 
+;;----------------------------------------------------------------------------
+;; Delete the current file
+;;----------------------------------------------------------------------------
+;; Credits: https://github.com/purcell/emacs.d/blob/master/lisp/init-utils.el
+;;
+(defun delete-this-file-and-buffer ()
+  "Delete the current file, and kill the buffer."
+  (interactive)
+  (or (buffer-file-name) (error "No file is currently being edited"))
+  (when (yes-or-no-p (format "Really delete '%s'?"
+                             (file-name-nondirectory buffer-file-name)))
+    (delete-file (buffer-file-name))
+    (kill-this-buffer)))
+
 (provide 'init-filesystem)
