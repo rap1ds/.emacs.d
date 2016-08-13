@@ -19,7 +19,6 @@
 (require 'init-ido)
 
 (require 'init-editor)
-(require 'init-fonts)
 (require 'init-smartparens)
 (require 'init-filesystem)
 (require 'init-whitespace)
