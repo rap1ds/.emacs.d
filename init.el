@@ -7,6 +7,13 @@
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;;----------------------------------------------------------------------------
@@ -42,7 +49,7 @@
 (require 'init-markdown)
 
 (require 'init-org)
-(require 'init-spotify)
+;; (require 'init-spotify)
 
 ;; Global modes
 (require 'init-global-modes)
@@ -53,7 +60,10 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/home.org" "~/Dropbox/org/clock-test.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org"))))
+    ("~/Dropbox/org/home.org" "~/Dropbox/org/clock-test.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org")))
+ '(package-selected-packages
+   (quote
+    (evil-mc yaml-mode web-mode solarized-theme smex scss-mode rvm robe rainbow-mode rainbow-delimiters powerline-evil ox-reveal multiple-cursors markdown-mode js2-mode idomenu ido-vertical-mode htmlize helm-projectile haml-mode fullframe flx-ido exec-path-from-shell evil-space evil-smartparens evil-org evil-leader evil-jumper company cider-eval-sexp-fu cider auto-complete align-cljlet ag ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

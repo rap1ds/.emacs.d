@@ -10,7 +10,8 @@
 (evil-leader/set-key
   "f" 'projectile-find-file
   "b" 'ido-switch-buffer
-  "s" 'projectile-ag)
+  "s" 'projectile-ag
+  "n" 'new-scratch-buffer)
 
 (define-key evil-normal-state-map (kbd "§") 'evil-execute-in-emacs-state)
 

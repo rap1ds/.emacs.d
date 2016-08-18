@@ -213,9 +213,34 @@ FUN function callback"
     ("DONE" . "green")))
 
 (setq org-agenda-custom-commands
-      '(("w" . "Work items in different stages")
-        ("ww" "Work in progress" todo "WIP")
-        ("wd" "Work done" tags "work+TODO=\"DONE\"+CLOSED>\"<-1w>\"")))
+      '(
+        ("w" "Work Agenda"
+         (
+          (agenda ""
+                  (
+                   (org-agenda-files '("~/Dropbox/org/tasks.org"))
+                    (org-agenda-prefix-format " %?-12t% s")
+                    ))
+          (todo "DONE" (
+                        (org-agenda-files '("~/Dropbox/org/tasks.org"))
+                        (org-agenda-sorting-strategy '(timestamp-down))
+                        (org-agenda-max-todos 25)
+                        ))
+          ))
+        ("h" "Home Agenda"
+         (
+          (agenda ""
+                  (
+                   (org-agenda-files '("~/Dropbox/org/home.org"))
+                    (org-agenda-prefix-format " %?-12t% s")
+                    ))
+          (todo "DONE" (
+                        (org-agenda-files '("~/Dropbox/org/home.org"))
+                        (org-agenda-sorting-strategy '(timestamp-down))
+                        (org-agenda-max-todos 25)
+                        ))
+          ))
+        ))
 
 ;; Evil bindings:
 ;;
