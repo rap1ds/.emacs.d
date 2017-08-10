@@ -13,14 +13,22 @@
 ;; (require 'cider-eval-sexp-fu)
 
 ;; Not spending time to learn to use this right now but maybe one day...
-;; (require-package 'clj-refactor)
+(require-package 'clj-refactor)
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'eldoc-mode)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook 'show-smartparens-mode)
 (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+
+(defun my-clojure-mode-hook ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1) ; for adding require/use/import statements
+    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 ;; Define versions of typical cider-eval-last-x functions to work with
 ;; evil's normal mode where point is one char left from where it would
@@ -84,5 +92,16 @@
 ;; Some leader bindings for clojure-mode / cider commands
 (evil-leader/set-key-for-mode 'clojure-mode
   "r"  'my-clojure/cider-reset)
+
+;; Rebind M-. back to 'robe-jump instead of evil mode repeat
+(evil-define-key 'normal cider-mode-map (kbd "M-.") 'cider-find-var)
+
+;; Clojure script
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
+
+(setq cljr-favor-prefix-notation nil)
 
 (provide 'init-clojure)
