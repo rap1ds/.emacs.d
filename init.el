@@ -23,7 +23,11 @@
 (require 'init-themes)
 (require 'init-osx)
 (require 'init-learning)
-(require 'init-ido)
+
+;; Commented out after installing Helm.
+;; TODO Remove this file.
+;; (require 'init-ido)
+(require 'init-helm)
 
 (require 'init-editor)
 (require 'init-smartparens)
@@ -34,6 +38,7 @@
 (require 'init-evil)
 (require 'init-powerline)
 
+(require 'init-ag)
 (require 'init-projectile)
 (require 'init-company)
 (require 'init-ruby)
@@ -65,7 +70,7 @@
     ("~/Dropbox/org/home.org" "~/Dropbox/org/clock-test.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org")))
  '(package-selected-packages
    (quote
-    (logview clj-refactor emojify restclient evil-mc yaml-mode web-mode solarized-theme smex scss-mode rvm robe rainbow-mode rainbow-delimiters powerline-evil ox-reveal multiple-cursors markdown-mode js2-mode idomenu ido-vertical-mode htmlize helm-projectile haml-mode fullframe flx-ido exec-path-from-shell evil-space evil-smartparens evil-org evil-leader evil-jumper company cider-eval-sexp-fu cider auto-complete align-cljlet ag ace-jump-mode))))
+    (helm logview clj-refactor emojify restclient evil-mc yaml-mode web-mode solarized-theme smex scss-mode rvm robe rainbow-mode rainbow-delimiters powerline-evil ox-reveal multiple-cursors markdown-mode js2-mode idomenu ido-vertical-mode htmlize helm-projectile haml-mode fullframe flx-ido exec-path-from-shell evil-space evil-smartparens evil-org evil-leader evil-jumper company cider-eval-sexp-fu cider auto-complete align-cljlet ag ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

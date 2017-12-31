@@ -1,9 +1,14 @@
-(require-package 'ag)
-
 (require-package 'projectile)
+
 (projectile-global-mode)
-(setq ag-highlight-search t)
-(setq ag-reuse-window t)
-(setq ag-reuse-buffers t)
+
+;; Install Helm UI for Projectile
+(require-package 'helm-projectile)
+
+;; Use helm as completion system
+(setq projectile-completion-system 'helm)
+
+;; Enable helm keybindings
+(helm-projectile-on)
 
 (provide 'init-projectile)
