@@ -1,5 +1,4 @@
 (require-package 'evil)
-(require-package 'evil-jumper)
 (require-package 'evil-leader)
 
 (evil-mode 1)
