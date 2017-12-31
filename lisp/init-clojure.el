@@ -7,6 +7,12 @@
 (require-package 'cider-eval-sexp-fu)
 (require-package 'align-cljlet)
 
+;; Add helm-cider
+;; https://github.com/clojure-emacs/helm-cider
+;;
+(require-package 'helm-cider)
+(helm-cider-mode 1)
+
 ;; Enable eval'd expression highlighting
 ;; FIXME cider-eval-sexp-fu doesn't work, after several hours of debugging.
 ;; The error I get is that Symbol is void
