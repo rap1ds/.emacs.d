@@ -215,32 +215,18 @@ FUN function callback"
 (setq org-agenda-custom-commands
       '(
         ("w" "Work Agenda"
-         (
-          (agenda ""
-                  (
-                   (org-agenda-files '("~/Dropbox/org/tasks.org"))
-                    (org-agenda-prefix-format " %?-12t% s")
-                    ))
-          (todo "DONE" (
-                        (org-agenda-files '("~/Dropbox/org/tasks.org"))
-                        (org-agenda-sorting-strategy '(timestamp-down))
-                        (org-agenda-max-todos 25)
-                        ))
-          ))
+         ((agenda "" ((org-agenda-prefix-format " %?-12t% s")))
+          (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
+                        (org-agenda-max-todos 25))))
+
+         ;; Show only :work: items in the agenda buffer
+         ;; https://emacs.stackexchange.com/a/18233
+         ((org-agenda-tag-filter-preset '("+work"))))
         ("h" "Home Agenda"
-         (
-          (agenda ""
-                  (
-                   (org-agenda-files '("~/Dropbox/org/home.org"))
-                    (org-agenda-prefix-format " %?-12t% s")
-                    ))
-          (todo "DONE" (
-                        (org-agenda-files '("~/Dropbox/org/home.org"))
-                        (org-agenda-sorting-strategy '(timestamp-down))
-                        (org-agenda-max-todos 25)
-                        ))
-          ))
-        ))
+         ((agenda "" ((org-agenda-prefix-format " %?-12t% s")))
+          (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
+                        (org-agenda-max-todos 25))))
+         ((org-agenda-tag-filter-preset '("+work"))))))
 
 ;; Evil bindings:
 ;;
