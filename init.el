@@ -69,7 +69,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/home.org" "~/Dropbox/org/clock-test.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org")))
+    ("~/Dropbox/personal/2018/aplit/notes.org" "~/Dropbox/org/home.org" "~/Dropbox/org/tasks.org" "~/Dropbox/org/notes.org")))
  '(package-selected-packages
    (quote
     (parinfer helm-cider helm logview clj-refactor emojify restclient evil-mc yaml-mode web-mode solarized-theme smex scss-mode rvm robe rainbow-mode rainbow-delimiters powerline-evil ox-reveal multiple-cursors markdown-mode js2-mode idomenu ido-vertical-mode htmlize helm-projectile haml-mode fullframe flx-ido exec-path-from-shell evil-space evil-smartparens evil-org evil-leader evil-jumper company cider-eval-sexp-fu cider auto-complete align-cljlet ag ace-jump-mode))))

@@ -249,13 +249,13 @@ FUN function callback"
 
 (setq org-capture-templates
       '(
-        ("t" "(t)ask" entry (file+headline (concat org-directory "/tasks.org") "Tasks")
+        ("t" "(t)ask" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
          "* TODO %?\n  SCHEDULED: %t %i")
-        ("T" "(T)ask with link" entry (file+headline (concat org-directory "/tasks.org") "Tasks")
+        ("T" "(T)ask with link" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
          "* TODO %?\n  SCHEDULED: %(org-insert-time-stamp (current-time)) %i\n  %a")
-        ("h" "(h)ome task" entry (file+headline (concat org-directory "/home.org") "Home tasks")
+        ("h" "(h)ome task" entry (file+headline (lambda () (concat org-directory "/home.org")) "Home tasks")
          "* TODO %?\n  SCHEDULED: %t %i")
-        ("n" "(n)ote" entry (file+headline (concat org-directory "/notes.org") "Notes")
+        ("n" "(n)ote" entry (file+headline (lambda () (concat org-directory "/notes.org")) "Notes")
          "* %?\n")
         ))
 
