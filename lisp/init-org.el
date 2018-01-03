@@ -215,18 +215,28 @@ FUN function callback"
 (setq org-agenda-custom-commands
       '(
         ("w" "Work Agenda"
-         ((agenda "" ((org-agenda-prefix-format " %?-12t% s")))
-          (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
-                        (org-agenda-max-todos 25))))
+         ((agenda ""
+                  ;; ((org-agenda-prefix-format " %?-12t% s"))
+                  )
+          (alltodo "")
+          ;; (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
+          ;;               (org-agenda-max-todos 25)))
+          )
 
          ;; Show only :work: items in the agenda buffer
          ;; https://emacs.stackexchange.com/a/18233
          ((org-agenda-tag-filter-preset '("+work"))))
         ("h" "Home Agenda"
-         ((agenda "" ((org-agenda-prefix-format " %?-12t% s")))
-          (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
-                        (org-agenda-max-todos 25))))
-         ((org-agenda-tag-filter-preset '("+work"))))))
+         ((agenda "" ;;((org-agenda-prefix-format " %?-12t% s"))
+                  )
+          (alltodo "")
+          ;; (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
+          ;;               (org-agenda-max-todos 25)))
+          )
+
+         ;; Show only :home: items in the agenda buffer
+         ;; https://emacs.stackexchange.com/a/18233
+         ((org-agenda-tag-filter-preset '("+home"))))))
 
 ;; Evil bindings:
 ;;
@@ -236,11 +246,11 @@ FUN function callback"
 (setq org-capture-templates
       '(
         ("t" "(t)ask" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
-         "* TODO %?\n  SCHEDULED: %t %i")
+         "* TODO %?")
         ("T" "(T)ask with link" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
-         "* TODO %?\n  SCHEDULED: %(org-insert-time-stamp (current-time)) %i\n  %a")
+         "* TODO %?\n  %a")
         ("h" "(h)ome task" entry (file+headline (lambda () (concat org-directory "/home.org")) "Home tasks")
-         "* TODO %?\n  SCHEDULED: %t %i")
+         "* TODO %?")
         ("n" "(n)ote" entry (file+headline (lambda () (concat org-directory "/notes.org")) "Notes")
          "* %?\n")
         ))
