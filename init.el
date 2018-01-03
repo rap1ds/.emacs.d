@@ -30,7 +30,7 @@
 (require 'init-helm)
 
 (require 'init-editor)
-;; (require 'init-smartparens)
+(require 'init-smartparens)
 (require 'init-filesystem)
 (require 'init-whitespace)
 (require 'init-exec-path)
@@ -38,7 +38,9 @@
 (require 'init-evil)
 (require 'init-powerline)
 
-(require 'init-parinfer)
+;; Disable parinfer
+;; Try it another time.
+;; (require 'init-parinfer)
 
 (require 'init-ag)
 (require 'init-projectile)
