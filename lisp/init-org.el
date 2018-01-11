@@ -197,7 +197,39 @@ FUN function callback"
 
 (setq org-log-done t)
 (setq org-startup-truncated nil)
+
+;; Set org directory.
+;; Include a helper function to search files recursively.
+;; Caveat: Files added after emacs start will not be included
+;;
+;; See: https://stackoverflow.com/questions/11384516/how-to-make-all-org-files-under-a-folder-added-in-agenda-list-automatically
+;;      https://github.com/suvayu/.emacs.d/blob/f9273fb40bf07d8dad851035a5a30878e5b6d697/lisp/nifty.el#L434
+
+;; recursively find .org files in provided directory
+;; modified from an Emacs Lisp Intro example
+(defun sa-find-org-file-recursively (&optional directory filext)
+  "Return .org and .org_archive files recursively from DIRECTORY.
+If FILEXT is provided, return files with extension FILEXT instead."
+  (interactive "DDirectory: ")
+  (let* (org-file-list
+	 (case-fold-search t)	      ; filesystems are case sensitive
+	 (file-name-regex "^[^.#].*") ; exclude dot, autosave, and backup files
+	 (filext (or filext "org$\\\|org_archive"))
+	 (fileregex (format "%s\\.\\(%s$\\)" file-name-regex filext))
+	 (cur-dir-list (directory-files directory t file-name-regex)))
+    ;; loop over directory listing
+    (dolist (file-or-dir cur-dir-list org-file-list) ; returns org-file-list
+      (cond
+       ((file-regular-p file-or-dir) ; regular files
+	(if (string-match fileregex file-or-dir) ; org files
+	    (add-to-list 'org-file-list file-or-dir)))
+       ((file-directory-p file-or-dir)
+	(dolist (org-file (sa-find-org-file-recursively file-or-dir filext)
+			  org-file-list) ; add files found to result
+	  (add-to-list 'org-file-list org-file)))))))
+
 (setq org-directory "~/Dropbox/org")
+(setq org-agenda-files (sa-find-org-file-recursively org-directory))
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
@@ -215,28 +247,21 @@ FUN function callback"
 (setq org-agenda-custom-commands
       '(
         ("w" "Work Agenda"
-         ((agenda ""
-                  ;; ((org-agenda-prefix-format " %?-12t% s"))
-                  )
-          (alltodo "")
-          ;; (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
-          ;;               (org-agenda-max-todos 25)))
-          )
+         ((agenda "")
+          (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline))))))
 
          ;; Show only :work: items in the agenda buffer
          ;; https://emacs.stackexchange.com/a/18233
-         ((org-agenda-tag-filter-preset '("+work"))))
+         ((org-agenda-tag-filter-preset '("+work"))
+          (org-agenda-compact-blocks t)))
         ("h" "Home Agenda"
-         ((agenda "" ;;((org-agenda-prefix-format " %?-12t% s"))
-                  )
-          (alltodo "")
-          ;; (todo "DONE" ((org-agenda-sorting-strategy '(timestamp-down))
-          ;;               (org-agenda-max-todos 25)))
-          )
+         ((agenda "")
+          (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline))))))
 
          ;; Show only :home: items in the agenda buffer
          ;; https://emacs.stackexchange.com/a/18233
-         ((org-agenda-tag-filter-preset '("+home"))))))
+         ((org-agenda-tag-filter-preset '("+home"))
+          (org-agenda-compact-blocks t)))))
 
 ;; Evil bindings:
 ;;

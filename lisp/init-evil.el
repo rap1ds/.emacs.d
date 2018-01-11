@@ -7,9 +7,9 @@
 (global-evil-leader-mode)
 
 (evil-leader/set-key
-  "f" 'projectile-find-file
+  "f" 'helm-projectile-find-file
   "b" 'ido-switch-buffer
-  "s" 'projectile-ag
+  "s" 'helm-projectile-ag
   "n" 'new-scratch-buffer)
 
 (define-key evil-normal-state-map (kbd "§") 'evil-execute-in-emacs-state)
