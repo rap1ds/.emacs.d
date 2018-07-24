@@ -1,5 +1,10 @@
 /auto-save-list
-/elpa
+
+# Remove /elpa from ignore.
+# This means that all installed packages will be in the repository.
+# This might be handy, if an upgrade breaks things.
+# /elpa
+
 *~
 projectile-bookmarks.eld
 ac-comphist.dat
