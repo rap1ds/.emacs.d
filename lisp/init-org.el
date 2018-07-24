@@ -260,7 +260,7 @@ If FILEXT is provided, return files with extension FILEXT instead."
 
          ;; Show only :home: items in the agenda buffer
          ;; https://emacs.stackexchange.com/a/18233
-         ((org-agenda-tag-filter-preset '("+home"))
+         ((org-agenda-tag-filter-preset '("-work"))
           (org-agenda-compact-blocks t)))))
 
 ;; Evil bindings:

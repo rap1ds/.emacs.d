@@ -9,6 +9,7 @@
             (set-frame-font "source code pro")
             (load-theme 'solarized-dark t)))
   (load-theme 'solarized-dark t)
+  ;; (load-theme 'solarized-light t)
   (set-frame-font "source code pro"))
 
 (provide 'init-themes)
