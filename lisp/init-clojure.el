@@ -3,7 +3,7 @@
 ;; Copied from https://github.com/ovan/.emacs.d
 
 (require-package 'clojure-mode)
-(require-package 'cider)
+(require-package 'cider '(20180723 2337))
 (require-package 'cider-eval-sexp-fu)
 (require-package 'align-cljlet)
 
