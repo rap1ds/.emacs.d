@@ -180,7 +180,9 @@ FUN function callback"
 (provide 'evil-org)
 ;;; evil-org.el ends here
 
-(require-package 'ox-reveal)
+;; This seems to be causing issues. Maybe because of update from 25 to 26.
+;; Disabling.
+;; (require-package 'ox-reveal)
 (require-package 'htmlize)
 
 (setq org-reveal-root "file:///Users/mikko/.emacs.d/reveal.js-3.2.0")

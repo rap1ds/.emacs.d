@@ -110,4 +110,9 @@
 
 (setq cljr-favor-prefix-notation nil)
 
+;; Set default cljs repl
+;; It's probably bad idea to set this
+;; globally. Instead, this should be set via .dir-locals
+;; (setq cider-default-cljs-repl 'figwheel)
+
 (provide 'init-clojure)
