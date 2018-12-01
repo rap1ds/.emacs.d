@@ -1,10 +1,12 @@
 ;;; evil-mc-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "evil-mc" "evil-mc.el" (23397 56810 726820
-;;;;;;  420000))
+;;;### (autoloads nil "evil-mc" "evil-mc.el" (0 0 0 0))
 ;;; Generated autoloads from evil-mc.el
 
 (autoload 'evil-mc-mode "evil-mc" "\
@@ -49,13 +51,96 @@ Turn off evil-mc mode in the current buffer.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc" '("evil-mc-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("evil-mc-command-execute.el" "evil-mc-command-record.el"
-;;;;;;  "evil-mc-common.el" "evil-mc-cursor-make.el" "evil-mc-cursor-state.el"
-;;;;;;  "evil-mc-known-commands.el" "evil-mc-pkg.el" "evil-mc-region.el"
-;;;;;;  "evil-mc-scratch.el" "evil-mc-setup.el" "evil-mc-undo.el"
-;;;;;;  "evil-mc-vars.el") (23397 56810 725501 863000))
+;;;### (autoloads nil "evil-mc-command-execute" "evil-mc-command-execute.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from evil-mc-command-execute.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-command-execute" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-command-record" "evil-mc-command-record.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from evil-mc-command-record.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-command-record" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-common" "evil-mc-common.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from evil-mc-common.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-common" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-cursor-make" "evil-mc-cursor-make.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from evil-mc-cursor-make.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-cursor-make" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-cursor-state" "evil-mc-cursor-state.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from evil-mc-cursor-state.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-cursor-state" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-known-commands" "evil-mc-known-commands.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from evil-mc-known-commands.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-known-commands" '("evil-mc-known-commands")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-region" "evil-mc-region.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from evil-mc-region.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-region" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-scratch" "evil-mc-scratch.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from evil-mc-scratch.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-scratch" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-setup" "evil-mc-setup.el" (0 0 0 0))
+;;; Generated autoloads from evil-mc-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-setup" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-undo" "evil-mc-undo.el" (0 0 0 0))
+;;; Generated autoloads from evil-mc-undo.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-undo" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil "evil-mc-vars" "evil-mc-vars.el" (0 0 0 0))
+;;; Generated autoloads from evil-mc-vars.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-mc-vars" '("evil-mc-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("evil-mc-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -63,5 +148,6 @@ Turn off evil-mc mode in the current buffer.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; evil-mc-autoloads.el ends here

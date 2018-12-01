@@ -1,10 +1,12 @@
 ;;; helm-cider-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "helm-cider" "helm-cider.el" (23397 56790 199537
-;;;;;;  125000))
+;;;### (autoloads nil "helm-cider" "helm-cider.el" (0 0 0 0))
 ;;; Generated autoloads from helm-cider.el
 
 (autoload 'helm-cider-apropos-symbol "helm-cider" "\
@@ -79,10 +81,12 @@ Use Helm for CIDER.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-cider" '("helm-cider-")))
+
 ;;;***
 
 ;;;### (autoloads nil "helm-cider-cheatsheet" "helm-cider-cheatsheet.el"
-;;;;;;  (23397 56790 203307 848000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from helm-cider-cheatsheet.el
 
 (autoload 'helm-cider-cheatsheet "helm-cider-cheatsheet" "\
@@ -90,10 +94,12 @@ Use Helm to show a Clojure cheatsheet.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-cider-cheatsheet" '("helm-cider-cheatsheet--")))
+
 ;;;***
 
-;;;### (autoloads nil "helm-cider-repl" "helm-cider-repl.el" (23397
-;;;;;;  56790 197383 539000))
+;;;### (autoloads nil "helm-cider-repl" "helm-cider-repl.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from helm-cider-repl.el
 
 (autoload 'helm-cider-repl-history-insert "helm-cider-repl" "\
@@ -117,10 +123,12 @@ Helm interface to CIDER REPL history.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-cider-repl" '("helm-cider-repl-")))
+
 ;;;***
 
-;;;### (autoloads nil "helm-cider-spec" "helm-cider-spec.el" (23397
-;;;;;;  56790 205083 835000))
+;;;### (autoloads nil "helm-cider-spec" "helm-cider-spec.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from helm-cider-spec.el
 
 (autoload 'helm-cider-spec-symbol "helm-cider-spec" "\
@@ -162,10 +170,19 @@ If ARG is raw prefix argument \\[universal-argument]
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-cider-spec" '("helm-cider-spec-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("helm-cider-pkg.el" "helm-cider-util.el")
-;;;;;;  (23397 56790 206884 871000))
+;;;### (autoloads nil "helm-cider-util" "helm-cider-util.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from helm-cider-util.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-cider-util" '("helm-cider--" "wrap-helm-cider-action")))
+
+;;;***
+
+;;;### (autoloads nil nil ("helm-cider-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -173,5 +190,6 @@ If ARG is raw prefix argument \\[universal-argument]
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; helm-cider-autoloads.el ends here

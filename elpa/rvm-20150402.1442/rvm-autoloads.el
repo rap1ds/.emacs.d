@@ -1,9 +1,12 @@
 ;;; rvm-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "rvm" "rvm.el" (23397 56754 90599 338000))
+;;;### (autoloads nil "rvm" "rvm.el" (0 0 0 0))
 ;;; Generated autoloads from rvm.el
 
 (autoload 'rvm-use-default "rvm" "\
@@ -28,11 +31,14 @@ switch the current ruby version to any ruby, which is installed with rvm
 
 \(fn GEMHOME)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rvm" '("rvm")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; rvm-autoloads.el ends here

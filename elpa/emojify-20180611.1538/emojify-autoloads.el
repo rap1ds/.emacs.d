@@ -1,10 +1,12 @@
 ;;; emojify-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "emojify" "emojify.el" (23397 56820 405136
-;;;;;;  379000))
+;;;### (autoloads nil "emojify" "emojify.el" (0 0 0 0))
 ;;; Generated autoloads from emojify.el
 
 (autoload 'emojify-set-emoji-styles "emojify" "\
@@ -80,10 +82,11 @@ This respects the `emojify-emoji-styles' variable.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "emojify" '("emojify-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("emojify-pkg.el") (23397 56820 402206
-;;;;;;  999000))
+;;;### (autoloads nil nil ("emojify-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -91,5 +94,6 @@ This respects the `emojify-emoji-styles' variable.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; emojify-autoloads.el ends here
