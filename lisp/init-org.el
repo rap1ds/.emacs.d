@@ -256,6 +256,27 @@ If FILEXT is provided, return files with extension FILEXT instead."
          ;; https://emacs.stackexchange.com/a/18233
          ((org-agenda-tag-filter-preset '("+work"))
           (org-agenda-compact-blocks t)))
+        ("s" "Statushero report"
+         ((tags-todo (concat "+work+SCHEDULED=\""
+                             (format-time-string "[%Y-%m-%d]" (current-time))
+                             "\"" ))
+          (tags (concat "+work+TODO=\"DONE\""
+                        "+CLOSED>=\""
+                        (format-time-string "[%Y-%m-%d]" (time-subtract (current-time) (days-to-time 1)))
+                        "\""))
+          (tags (concat "+work+TODO=\"DONE\""
+                        "+CLOSED>=\""
+                        (format-time-string "[%Y-%m-%d]" (time-subtract (current-time) (days-to-time 2)))
+                        "\""))
+          (tags (concat "+work+TODO=\"DONE\""
+                        "+CLOSED>=\""
+                        (format-time-string "[%Y-%m-%d]" (time-subtract (current-time) (days-to-time 3)))
+                        "\"")))
+
+         ;; Show only :work: items in the agenda buffer
+         ;; https://emacs.stackexchange.com/a/18233
+         ((org-agenda-tag-filter-preset '("+work"))
+          (org-agenda-compact-blocks t)))
         ("h" "Home Agenda"
          ((agenda "")
           (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline))))))
