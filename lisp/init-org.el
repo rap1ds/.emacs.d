@@ -257,9 +257,10 @@ If FILEXT is provided, return files with extension FILEXT instead."
          ((org-agenda-tag-filter-preset '("+work"))
           (org-agenda-compact-blocks t)))
         ("s" "Statushero report"
-         ((tags-todo (concat "+work+SCHEDULED=\""
-                             (format-time-string "[%Y-%m-%d]" (current-time))
-                             "\"" ))
+         ((agenda "")
+          ;; (tags-todo (concat "+work+SCHEDULED=\""
+          ;;                    (format-time-string "[%Y-%m-%d]" (current-time))
+          ;;                    "\"" ))
           (tags (concat "+work+TODO=\"DONE\""
                         "+CLOSED>=\""
                         (format-time-string "[%Y-%m-%d]" (time-subtract (current-time) (days-to-time 1)))
@@ -293,14 +294,12 @@ If FILEXT is provided, return files with extension FILEXT instead."
 
 (setq org-capture-templates
       '(
-        ("t" "(t)ask" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
+        ("t" "(t)ask" entry (file+headline (lambda () (concat org-directory "/work/tasks.org")) "Tasks")
          "* TODO %?")
-        ("T" "(T)ask with link" entry (file+headline (lambda () (concat org-directory "/tasks.org")) "Tasks")
+        ("T" "(T)ask with link" entry (file+headline (lambda () (concat org-directory "/work/tasks.org")) "Tasks")
          "* TODO %?\n  %a")
-        ("h" "(h)ome task" entry (file+headline (lambda () (concat org-directory "/home.org")) "Home tasks")
+        ("h" "(h)ome task" entry (file+headline (lambda () (concat org-directory "/personal/home.org")) "Home tasks")
          "* TODO %?")
-        ("n" "(n)ote" entry (file+headline (lambda () (concat org-directory "/notes.org")) "Notes")
-         "* %?\n")
         ))
 
 ;; Start org-agenda in Normal evil node

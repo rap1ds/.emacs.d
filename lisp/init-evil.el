@@ -8,9 +8,10 @@
 
 (evil-leader/set-key
   "f" 'helm-projectile-find-file
-  "b" 'ido-switch-buffer
+  "b" 'helm-mini
   "s" 'helm-projectile-ag
-  "n" 'new-scratch-buffer)
+  "n" 'new-scratch-buffer
+  )
 
 (define-key evil-normal-state-map (kbd "§") 'evil-execute-in-emacs-state)
 

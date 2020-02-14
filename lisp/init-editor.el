@@ -23,14 +23,14 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(defun new-scratch-buffer ()
+(defun new-scratch-buffer (name)
   "Open a new empty buffer.
 URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
 Version 2016-08-11"
-  (interactive)
-  (let ((-buf (generate-new-buffer "untitled")))
+  (interactive "sBuffer name: ")
+  (let ((-buf (generate-new-buffer name)))
     (switch-to-buffer -buf)
-    (text-mode)
+    (set-auto-mode)
     (setq buffer-offer-save t)))
 
 ;; http://emacsredux.com/blog/2013/04/07/display-visited-files-path-in-the-frame-title/

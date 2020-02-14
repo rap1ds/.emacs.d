@@ -103,10 +103,10 @@
 (evil-define-key 'normal cider-mode-map (kbd "M-.") 'cider-find-var)
 
 ;; Clojure script
-(setq cider-cljs-lein-repl
-      "(do (require 'figwheel-sidecar.repl-api)
-           (figwheel-sidecar.repl-api/start-figwheel!)
-           (figwheel-sidecar.repl-api/cljs-repl))")
+;; (setq cider-cljs-lein-repl
+;;       "(do (require 'figwheel-sidecar.repl-api)
+;;            (figwheel-sidecar.repl-api/start-figwheel!)
+;;            (figwheel-sidecar.repl-api/cljs-repl))")
 
 (setq cljr-favor-prefix-notation nil)
 
