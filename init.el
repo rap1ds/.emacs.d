@@ -22,7 +22,6 @@
 (require 'init-elpa) ;; Machinery for installing required packages
 (require 'init-themes)
 (require 'init-osx)
-(require 'init-learning)
 
 ;; Commented out after installing Helm.
 ;; TODO Remove this file.

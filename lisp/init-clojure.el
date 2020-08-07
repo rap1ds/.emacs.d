@@ -50,7 +50,14 @@
 
 (defun my-clojure/eval-last-sexp ()
   (interactive)
-  (my-clojure/do-with-append 'cider-eval-last-sexp))
+  (my-clojure/do-with-append 'cider-eval-last-sexp)
+  ;; (with-current-buffer (cider-current-repl-buffer)
+  ;;   (goto-char (point-max))
+  ;;   (when (eq 'cljs (cider-repl-type-for-buffer))
+  ;;     (insert "(sharetribe.console.ui.figwheel-entry/on-jsload)")
+  ;;     (message "reagent rerendered"))
+  ;;   (cider-repl-return))
+  )
 
 (defun my-clojure/pprint-eval-last-sexp ()
   (interactive)
