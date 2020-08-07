@@ -2,7 +2,7 @@
   '((emacs "24.4")
     (cider "0.16")
     (helm-core "2.8"))
-  :keywords
+  :commit "9363cc537f06233345aa3af5cd46aa5681ad607b" :keywords
   '("cider" "clojure" "helm" "languages")
   :authors
   '(("Tianxiang Xiong" . "tianxiang.xiong@gmail.com"))
