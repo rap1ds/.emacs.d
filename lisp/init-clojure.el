@@ -7,6 +7,56 @@
 (require-package 'cider-eval-sexp-fu)
 (require-package 'align-cljlet)
 
+;; clj-kondo
+;;
+;; For some reason, I just couldn't get this working by using
+;; require-package. Copy-pasted from
+;; https://github.com/borkdude/flycheck-clj-kondo/blob/5472c26ffdf754a0661357564874ffd4f8598805/flycheck-clj-kondo.el
+;; and now it seems to work..?
+(defmacro flycheck-clj-kondo--define-checker
+    (name lang mode &rest extra-args)
+  "Internal macro to define checker.
+Argument NAME: the name of the checker.
+Argument LANG: language string.
+Argument MODE: the mode in which this checker is activated.
+Argument EXTRA-ARGS: passes extra args to the checker."
+  (let ((command
+         (append
+          (list "clj-kondo" "--lint" "-" "--lang" lang)
+          extra-args)))
+    `(flycheck-define-checker ,name
+       "See https://github.com/borkdude/clj-kondo"
+       :command ,command
+       :standard-input t
+       :error-patterns
+       ((error line-start "<stdin>:" line ":" column ": " (0+ not-newline) (or "error: " "Exception: ") (message) line-end)
+        (warning line-start "<stdin>:" line ":" column ": " (0+ not-newline) "warning: " (message) line-end)
+        (info line-start "<stdin>:" line ":" column ": " (0+ not-newline) "info: " (message) line-end))
+       :modes (,mode)
+       :predicate (lambda ()
+                    (if buffer-file-name
+                        ;; If there is an associated file with buffer, use file name extension
+                        ;; to infer which language to turn on.
+                        (string= ,lang (file-name-extension buffer-file-name))
+                      ;; Else use the mode to infer which language to turn on.
+                      ,(pcase lang
+                         ("clj" `(equal 'clojure-mode major-mode))
+                         ("cljs" `(equal 'clojurescript-mode major-mode))
+                         ("cljc" `(equal 'clojurec-mode major-mode))))))))
+
+(defmacro flycheck-clj-kondo-define-checkers (&rest extra-args)
+  "Defines all clj-kondo checkers.
+Argument EXTRA-ARGS: passes extra arguments to the checkers."
+  `(progn
+     (flycheck-clj-kondo--define-checker clj-kondo-clj "clj" clojure-mode ,@extra-args)
+     (flycheck-clj-kondo--define-checker clj-kondo-cljs "cljs" clojurescript-mode ,@extra-args)
+     (flycheck-clj-kondo--define-checker clj-kondo-cljc "cljc" clojurec-mode ,@extra-args)
+     (flycheck-clj-kondo--define-checker clj-kondo-edn "edn" clojure-mode ,@extra-args)
+     (dolist (element '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
+       (add-to-list 'flycheck-checkers element))))
+
+(flycheck-clj-kondo-define-checkers "--cache")
+
 ;; Add helm-cider
 ;; https://github.com/clojure-emacs/helm-cider
 ;;
@@ -123,3 +173,4 @@
 ;; (setq cider-default-cljs-repl 'figwheel)
 
 (provide 'init-clojure)
+;;; init-clojure.el ends here
