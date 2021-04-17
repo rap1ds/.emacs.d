@@ -69,17 +69,18 @@ Argument EXTRA-ARGS: passes extra arguments to the checkers."
 ;; (require 'cider-eval-sexp-fu)
 
 ;; Not spending time to learn to use this right now but maybe one day...
-(require-package 'clj-refactor)
+;; (require-package 'clj-refactor)
 
 (add-hook 'cider-mode-hook 'eldoc-mode)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook 'show-smartparens-mode)
+(add-hook 'clojure-mode-hook 'hs-minor-mode)
 (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
 
 (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
+    ;; (clj-refactor-mode 1)
     (yas-minor-mode 1) ; for adding require/use/import statements
     ;; This choice of keybinding leaves cider-macroexpand-1 unbound
     (cljr-add-keybindings-with-prefix "C-c C-m"))
@@ -171,6 +172,10 @@ Argument EXTRA-ARGS: passes extra arguments to the checkers."
 ;; It's probably bad idea to set this
 ;; globally. Instead, this should be set via .dir-locals
 ;; (setq cider-default-cljs-repl 'figwheel)
+
+;; Add babashka shebang
+;; (add-to-list 'interpreter-mode-alist
+;;              '("bb" . clojure-mode))
 
 (provide 'init-clojure)
 ;;; init-clojure.el ends here

@@ -1,7 +1,9 @@
 (require-package 'evil)
 (require-package 'evil-leader)
+(require-package 'evil-surround)
 
 (evil-mode 1)
+(global-evil-surround-mode 1)
 (setq evil-shift-width 2)
 
 (global-evil-leader-mode)

@@ -8,11 +8,12 @@
 ;;       Phil Hagelberg <technomancy@gmail.com>
 ;;       Bozhidar Batsov <bozhidar@batsov.com>
 ;;       Artur Malabarba <bruce.connor.am@gmail.com>
+;; Maintainer: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Package-Version: 20200419.559
-;; Package-Commit: da9f1ec717dac1194404b4a4562dba6bd9a4ee3a
+;; Package-Version: 20201126.1558
+;; Package-Commit: 53ef8ac076ae7811627fbdd408e519ab7fca9a0b
 ;; Keywords: languages clojure clojurescript lisp
-;; Version: 5.12.0-snapshot
+;; Version: 5.13.0-snapshot
 ;; Package-Requires: ((emacs "25.1"))
 
 ;; This file is not part of GNU Emacs.
@@ -72,7 +73,6 @@
 (require 'align)
 (require 'subr-x)
 (require 'lisp-mnt)
-(require 'project)
 
 (declare-function lisp-fill-paragraph  "lisp-mode" (&optional justify))
 
@@ -295,7 +295,6 @@ Out-of-the box `clojure-mode' understands lein, boot, gradle,
          ["View a Clojure guide" clojure-view-guide]
          ["View a Clojure reference section" clojure-view-reference-section]
          ["View the Clojure cheatsheet" clojure-view-cheatsheet]
-         ["View the Clojure Grimoire" clojure-view-grimoire]
          ["View the Clojure style guide" clojure-view-style-guide])
         "--"
         ["Report a clojure-mode bug" clojure-mode-report-bug]
@@ -438,14 +437,6 @@ The command will prompt you to select one of the available sections."
   (interactive)
   (browse-url clojure-cheatsheet-url))
 
-(defconst clojure-grimoire-url "https://www.conj.io/"
-  "The URL of the Grimoire community documentation site.")
-
-(defun clojure-view-grimoire ()
-  "Open the Clojure Grimoire in your default browser."
-  (interactive)
-  (browse-url clojure-grimoire-url))
-
 (defconst clojure-style-guide-url "https://guide.clojure.style"
   "The URL of the Clojure style guide.")
 
@@ -480,7 +471,7 @@ val} as of Clojure 1.9.")
 (declare-function paredit-close-curly "ext:paredit" t t)
 (declare-function paredit-convolute-sexp "ext:paredit")
 
-(defun clojure--replace-let-bindings-and-indent ()
+(defun clojure--replace-let-bindings-and-indent (&rest _)
   "Replace let bindings and indent."
   (save-excursion
     (backward-sexp)
@@ -560,9 +551,7 @@ replacement for `cljr-expand-let`."
                                        (beginning-of-line-text)
                                        (eq (get-text-property (point) 'face)
                                            'font-lock-doc-face)))
-                                'do-indent)))
-  ;; integration with project.el
-  (add-hook 'project-find-functions #'clojure-current-project))
+                                'do-indent))))
 
 (defcustom clojure-verify-major-mode t
   "If non-nil, warn when activating the wrong `major-mode'."
@@ -1474,7 +1463,7 @@ the indentation.
 
 The property value can be
 
-- `defun', meaning indent `defun'-style;
+- `:defn', meaning indent `defn'-style;
 - an integer N, meaning indent the first N arguments specially
   like ordinary function arguments and then indent any further
   arguments like a body;
@@ -1735,16 +1724,6 @@ are cached in a buffer local variable (`clojure-cached-project-dir')."
       (setq clojure-cached-project-dir project-dir))
     project-dir))
 
-(defun clojure-current-project (&optional dir-name)
-  "Return the current project as a cons cell usable by project.el.
-
-Call is delegated down to `clojure-project-dir' with
-optional DIR-NAME as argument."
-  (let ((project-dir (clojure-project-dir dir-name)))
-    (if project-dir
-        (cons 'clojure project-dir)
-      nil)))
-
 (defun clojure-project-root-path (&optional dir-name)
   "Return the absolute path to the project's root directory.
 
@@ -1757,10 +1736,6 @@ Return nil if not inside a project."
                                 clojure-build-tool-files))))
     (when (> (length choices) 0)
       (car (sort choices #'file-in-directory-p)))))
-
-;; project.el integration
-(cl-defmethod project-roots ((project (head clojure)))
-  (list (cdr project)))
 
 (defun clojure-project-relative-path (path)
   "Denormalize PATH by making it relative to the project root."
@@ -1854,7 +1829,6 @@ content) are considered part of the preceding sexp."
   (if (clojure-find-ns)
       (save-excursion
         (goto-char (match-beginning 0))
-        (redisplay)
         (let ((beg (point))
               (ns))
           (forward-sexp 1)
@@ -1869,10 +1843,7 @@ content) are considered part of the preceding sexp."
           (goto-char beg)
           (if (looking-at (regexp-quote ns))
               (message "ns form is already sorted")
-            (sleep-for 0.1)
-            (redisplay)
-            (message "ns form has been sorted")
-            (sleep-for 0.1))))
+            (message "ns form has been sorted"))))
     (user-error "Can't find ns form")))
 
 (defconst clojure-namespace-name-regex
