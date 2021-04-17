@@ -11,9 +11,7 @@
 ;;; Generated autoloads from powerline-evil.el
 
 (autoload 'powerline-evil-face "powerline-evil" "\
-Function to select appropriate face based on `evil-state'.
-
-\(fn)" nil nil)
+Function to select appropriate face based on `evil-state'." nil nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "powerline-evil" '("powerline-evil-tag")))
 
@@ -24,19 +22,13 @@ Function to select appropriate face based on `evil-state'.
 ;;; Generated autoloads from powerline-evil-themes.el
 
 (autoload 'powerline-evil-center-color-theme "powerline-evil-themes" "\
-Powerline's center-evil them with the evil state in color.
-
-\(fn)" t nil)
+Powerline's center-evil them with the evil state in color." t nil)
 
 (autoload 'powerline-evil-vim-theme "powerline-evil-themes" "\
-Powerline's Vim-like mode-line with evil state at the beginning.
-
-\(fn)" t nil)
+Powerline's Vim-like mode-line with evil state at the beginning." t nil)
 
 (autoload 'powerline-evil-vim-color-theme "powerline-evil-themes" "\
-Powerline's Vim-like mode-line with evil state at the beginning in color.
-
-\(fn)" t nil)
+Powerline's Vim-like mode-line with evil state at the beginning in color." t nil)
 
 ;;;***
 

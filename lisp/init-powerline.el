@@ -1,5 +1,5 @@
-(require-package 'powerline-evil)
+(require-package 'powerline)
 
-(powerline-evil-center-color-theme)
+(powerline-evil-vim-color-theme)
 
 (provide 'init-powerline)
